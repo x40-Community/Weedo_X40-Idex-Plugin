@@ -1,11 +1,13 @@
 {
 	"idex_mode":
 	{
-		"label": "IDEX Mode",
-		"description": "Select the IDEX mode to be used.",
+		"label": "Print Mode",
+		"description": "Select the print mode to be used.",
 		"type": "enum",
 		"options":
 		{
+			"lh":   "LH Extruder",
+			"rh":   "RH Extruder",
 			"idex":   "IDEX-Mode",
 			"copy":   "Duplicate-Mode",
 			"mirror": "Mirror-Mode"
@@ -18,8 +20,8 @@
 	},
 	"idex_change_width":
 	{
-		"label": "Adapt bed width",
-		"description": "Allows adaption of bed width depending on set IDEX mode.",
+		"label": "Adapt allow printing area width of build plate",
+		"description": "Allows adaption of printing area width depending on set IDEX mode.",
 		"type": "bool",
 		"default_value": true,
 		"settable_per_mesh": false,

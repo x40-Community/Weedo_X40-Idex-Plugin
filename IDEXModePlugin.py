@@ -174,6 +174,9 @@ class IDEXModePlugin(Extension):
                         self._global_container_stack.setProperty("machine_width", "value", self._build_width / 2.0689)
                     elif idex_mode == "mirror":
                         self._global_container_stack.setProperty("machine_width", "value", self._build_width / 2.5)
+                    elif idex_mode == "lh" or idex_mode == "rh":
+                        self._global_container_stack.setProperty("machine_width", "value", self._build_width)        
+                
                 else:
                     self._global_container_stack.setProperty("machine_width", "value", self._build_width)
         
@@ -216,9 +219,30 @@ class IDEXModePlugin(Extension):
                     for node in BreadthFirstIterator(self._root_node):
                         if isinstance(node, Platform):
                             node.setPosition(Vector(offset[0], offset[1], offset[2]))
-                            
+                
+                elif idex_mode == "lh":
+                    self._application.getMachineManager().setExtruderEnabled(0, True)
+                    self._application.getMachineManager().setExtruderEnabled(1, False)
+                    self._global_container_stack.setProperty("machine_width", "value", self._build_width)
+                    for node in BreadthFirstIterator(self._root_node):
+                        if isinstance(node, Platform):
+                            node.setPosition(Vector(offset[0], offset[1], offset[2]))
+
+                
+                elif idex_mode == "rh":
+                    self._application.getMachineManager().setExtruderEnabled(0, False)
+                    self._application.getMachineManager().setExtruderEnabled(1, True)
+                    self._global_container_stack.setProperty("machine_width", "value", self._build_width)
+                    for node in BreadthFirstIterator(self._root_node):
+                        if isinstance(node, Platform):
+                            node.setPosition(Vector(offset[0], offset[1], offset[2]))
+
+                
                 extruder_t0.enabledChanged.connect(self._onEnabledChangedT0)
                 extruder_t1.enabledChanged.connect(self._onEnabledChangedT1)
+                
+                
+                
                 
         else:   #for single extruder printers set IDEX mode to always idex
             if key == "idex_mode" and property_name == "value":
