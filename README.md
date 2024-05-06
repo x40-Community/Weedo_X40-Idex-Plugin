@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Cura-IDEX-mode-plugin
 This tiny plugin adds a custom parameter called **IDEX Mode** to the Cura sidebar under the Dual Extrusion category that is passed to the slicer start code/gcode and can be processed later via Klipper macros.
 
@@ -48,3 +49,18 @@ When you now have the option **Adapt bed width** selected and choose **mirror** 
 - 2023-08-22: Updated plugin to v0.2.0 - added parameter to enable or disable adaption of bed width. Fixed bug causing Cura to crash when switching to single extruder printer.
 - 2023-08-23: Updated plugin to v0.2.5 - when on single extruder printer IDEX mode is set to IDEX only. Added additional photo on top of this page.
 - 2023-09-07: Updated plugin to v0.5.5 - when a printer platform model is present/loaded its position will be adapted to the IDEX mode as well.
+=======
+# Cura Idex Plugin for Weedo X40 / X40 PRO
+
+This plugin is based on the Cura Idex plugin by Life0fBrian Brian (https://github.com/Life0fBrian/Cura-IDEX-mode-plugin?tab=readme-ov-file) and was adapted to the Weedo X40 3D printer. The plugin works with Cura 5.X
+
+With the plugin you can easily set the right printing area. Collisions or an incorrect position in duplicate and mirror mode are therefore impossible.
+
+In order for the IDEX plugin option to be displayed, you must set the parameter display to ALL or search for IDEX in the search. You can then find the settings in the Dual Extrusion category.
+
+![IDEX Plugin](Plugin_Demo.png)
+
+## Install
+In the plugin directory, create a subdirectory called Weedo_X40-Idex-mode-plugin. In this subdirectory create another subdirectory with the same name. Download the Zip-file (green code button). Unpack the contents of the zip-file in this subdirectory and restart Cura.
+
+>>>>>>> 78b4a223c8e3fec70e072311acb849d50eb49777
